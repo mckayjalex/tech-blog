@@ -18,11 +18,11 @@ Comment.init({
         type: DataTypes.STRING,
         allowNull: false,
     },
-    project_id: {
+    post_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'project',
+            model: 'post',
             key: 'id'
         }
     },
