@@ -1,10 +1,9 @@
-
-<div class="container mx-auto mt-6">
+<div class="container mx-auto flex items-center justify-center flex-col font-mono mt-6"
     <button class="mb-12"><a href="/newpost" class="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">New Post</a></button>
     {{#each posts as |post| }}
     <div class="mb-5 w-full rounded overflow-hidden shadow-lg flex justify-between">
         <div class="px-6 py-4">
-            <a href="/posts/{{post.id}}" class="font-bold text-xl mb-2">{{post.title}}</a>
+            <a href="/posts/{{post.id}}" class="font-bold text-xl mb-2 hover:underline hover:underline-offset-4">{{post.title}}</a>
             <p class="text-gray-700 text-base">{{post.description}}</p>
         </div>
         <div class="px-6 pt-4 pb-2">

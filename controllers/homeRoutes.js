@@ -33,6 +33,15 @@ router.get('/login', (req, res) => {
   // else it will load the login handlebar
   res.render('login');
 });
+router.get('/signup', (req, res) => {
+  // If session.logged_in = true then redirect to "/"
+  if(req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+  // else it will load the login handlebar
+  res.render('signup');
+});
 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
@@ -48,7 +57,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       const user = userData.get({ plain: true });
       res.render('dashboard', {
        ...user,
-       logged_in: true
+       logged_in: req.session.logged_in
       });
       if(!req.session.logged_in) {
         

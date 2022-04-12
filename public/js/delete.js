@@ -1,5 +1,5 @@
 const postDeleteBtn = document.getElementById('delete-post');
-const commentDeleteBtn = document.getElementById('delete-comment');
+const commentDeleteBtn = document.querySelectorAll('.comment');
 
 const deletePost = async (event) => {
     const id = event.target.getAttribute('data-id');
@@ -20,8 +20,11 @@ const deleteComment = async (event) => {
     if (!response.ok) {
         alert('Failed to delete comment');
     } else {
-        document.location.replace('/dashboard');
+        document.location.reload();
     } 
 }
 postDeleteBtn.addEventListener('click', deletePost);
-commentDeleteBtn.addEventListener('click', deleteComment);
+commentDeleteBtn.forEach((btn) => {
+    btn.addEventListener('click', deleteComment);
+})
+

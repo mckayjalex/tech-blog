@@ -5,43 +5,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['Cutive Mono', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
   <title>Tech Blog</title>
 </head>
 
 <body>
-  <header class="bg-gray-400">
-    <nav class="flex items-center justify-between flex-wrap bg-teal p-6">
-      <div class="flex items-center flex-no-shrink text-white mr-6">
-        <a href="/" class="font-semibold text-4xl tracking-tight">Tech Blogs</a>
-      </div>
-      <div class="w-full block flex justify-between flex-grow lg:flex lg:items-center lg:w-auto">
-        <section class="flex">
-          <div class="text-sm lg:flex-grow">
-            <a href="/dashboard" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">
-              Dashboard
-            </a>
-          </div>
-        </section>
-        <section class="flex">
-          {{#if logged_in}}
-          <div>
-            <a id="logout"
-              class="cursor-pointer inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal hover:bg-blue-400 mt-4 lg:mt-0">
-              Logout</a>
-          </div>
-         {{else}}
-          <div>
-            <a href="/login"
-              class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal hover:bg-blue-400 mt-4 lg:mt-0">Login</a>
-          </div> 
-          {{/if}}
-      </div>
-      </section>
-    </nav>
+  <header class="font-mono h-44 flex justify-center items-center">
+    <a href="/" class="text-5xl">Tech Blogs</a>
+    <a href="/dashboard" class="px-4 hover:underline hover:underline-offset-4">
+      Dashboard
+    </a>
+    {{#if logged_in}}
+    <a id="logout"
+      class="px-4 cursor-pointer hover:underline hover:underline-offset-4">
+      Logout</a>
+    {{else}}
+    <a href="/login"
+      class="px-4 cursor-pointer hover:underline hover:underline-offset-4">Login</a>
+    {{/if}}
   </header>
-
   {{{ body }}}
+  {{#if logged_in}}
   <script src="./js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
