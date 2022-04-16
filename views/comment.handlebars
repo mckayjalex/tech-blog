@@ -1,0 +1,55 @@
+<div class="container mx-auto mt-6 font-mono">
+    <div class="mb-5 w-full rounded overflow-hidden shadow-lg flex justify-between">
+        <div class="px-6 py-4">
+            <p class="font-bold text-xl mb-2">{{posts.title}}</p>
+            <p class="text-gray-700 text-base">{{posts.description}}</p>
+        </div>
+        <div class="px-6 pt-4 pb-2 flex items-center">
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{posts.user.username}}</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{format_date posts.createdAt}}</span>
+            <button class=""><a id="add-comment" class="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Add Comment</a></button>
+            <button class=""><a id="stop-comment" class="hidden px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Cancel</a></button>
+        </div>
+    </div>
+</div>
+{{!-- ADD COMMENT --}}
+    <div id="show-form" class="hidden flex items-center justify-center font-mono">
+        <div class="px-8 py-6 w-full mx-44 mt-4 text-left bg-white shadow-lg">
+            <h3 class="text-2xl font-bold text-center">Add a new comment</h3>
+            <form id="comment-form">
+                <div class="mt-4">
+                    <div>
+                        <label class="block" for="title">Title<label>
+                                <input id="comment-title" type="text" placeholder="Enter title"
+                                    class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+                    </div>
+                    <div class="mt-4">
+                        <label class="block">Description<label>
+                                <textarea id="comment-desc" type="text" placeholder="Please enter post description.."
+                                    class="w-full px-4 py-2 mt-2 border h-44 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"></textarea>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <button type="submit"
+                            class="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Add
+                            Comment</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<div class="container mx-auto mt-6 font-mono">
+    {{#each posts.comments as |comment|}}
+    <div class="mb-5 ml-12 w-full bg-gray-200 rounded overflow-hidden shadow-lg flex items-center justify-between">
+        <div class="px-6 py-4">
+            <p class="font-bold text-xl mb-2">{{comment.title}}</p>
+            <p class="text-gray-700 text-base">{{comment.description}}</p>
+        </div>
+        <div class="px-6 pt-4 pb-2 flex items-center">
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{format_date comment.createdAt}}</span>
+            <button class="comment px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900" data-id="{{comment.id}}">Delete</button>
+        </div>
+    </div>
+    {{/each}}
+</div>
+<script src="../js/newComment.js"></script>
+

@@ -5,9 +5,9 @@
             <p class="font-bold underline underline-offset-2 text-xl mb-2">{{post.title}}</p>
             <p class="text-gray-700 text-base">{{post.description}}</p>
         </div>
-        <div class="px-6 pt-4 pb-2">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{post.user.username}}</span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{format_date post.createdAt}}</span>
+        <div class="px-6 flex items-center pt-4 pb-2">
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{post.user.username}}</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 ">{{format_date post.createdAt}}</span>
         </div>
     </div>
     {{/each}}

@@ -4,7 +4,10 @@
 
 ## Description 
 
-This is a simple application to add and comment on projects.      
+This is a simple application to add and comment on projects.
+Users can register and account and then view what other users have posted about and with the added option to also comment on other users posts.
+Posts and comments can be deleted with a user also being able to edit their posts from the profile page.
+
 
 ## Table of contents 
 
@@ -17,13 +20,17 @@ This is a simple application to add and comment on projects.
 ## Screenshots 
 ---
 
-*Insomnia Info*
+*Homepage*
 
-![]()
+![Home](assets/images/homepage.png)
 
-*Demo*
+*Profile*
 
-![]()
+![Profile](assets/images/profile.png)
+
+*Dashboard*
+
+![Dashboard](assets/images/dashboard.png)
 
 ## Technologies
 ***
@@ -52,7 +59,7 @@ Note: This application is only a partial app and it can be tested using Insomnia
 
 ## Resources
 
-[Github Repo](https://github.com/mckayjalex/ecommerce-backend)
+[Github Repo](https://github.com/mckayjalex/tech-blog)
 
 ## Contact
 

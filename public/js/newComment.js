@@ -8,7 +8,6 @@ const commentFormHandler = async (event) => {
     const title = document.getElementById('comment-title').value.trim();
     const description = document.getElementById('comment-desc').value.trim();
     const postId = window.location.href.split('/')[4];
-    console.log(postId);
     const response = await fetch('/api/comments/', {
         method: 'POST',
         body: JSON.stringify({ title, description, postId}),
@@ -19,6 +18,18 @@ const commentFormHandler = async (event) => {
     } else {
         alert('Failed to comment');
     }
+};
+
+const deleteComment = async (event) => {
+    const id = event.target.getAttribute('data-id');
+    const response = await fetch(`/api/comments/${id}`, {
+        method: 'DELETE'
+    });
+    if (!response.ok) {
+        alert('Failed to delete comment');
+    } else {
+        document.location.reload();
+    } 
 };
 
 const showCommentForm = () => {
@@ -35,3 +46,8 @@ const hideCommentForm = () => {
 commentForm.addEventListener('submit', commentFormHandler);
 addComment.addEventListener('click', showCommentForm);
 cancelComment.addEventListener('click', hideCommentForm);
+
+document.querySelectorAll('.comment').forEach((btn) => {
+    btn.addEventListener('click', deleteComment);
+});
+

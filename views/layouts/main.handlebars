@@ -25,6 +25,9 @@
 <body>
   <header class="font-mono h-44 flex justify-center items-center">
     <a href="/" class="text-5xl">Tech Blogs</a>
+    <a href="/profile" class="px-4 hover:underline hover:underline-offset-4">
+      Profile
+    </a>
     <a href="/dashboard" class="px-4 hover:underline hover:underline-offset-4">
       Dashboard
     </a>
@@ -39,7 +42,7 @@
   </header>
   {{{ body }}}
   {{#if logged_in}}
-  <script src="./js/logout.js"></script>
+  <script src="../js/logout.js"></script>
   {{/if}}
 </body>
 

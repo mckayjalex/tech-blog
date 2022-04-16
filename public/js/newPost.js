@@ -10,7 +10,7 @@ const postFormHandler = async () => {
         headers: { "Content-Type": "application/json"}
     });
     if(response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/profile');
     } else {
         alert('Failed to post');
     }
